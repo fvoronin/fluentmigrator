@@ -31,7 +31,11 @@ namespace FluentMigrator.Model
         {
             constraintType = type;
 
+#if NETCF
+            Columns = new FluentMigrator.CF.Collections.Generic.HashSet<string>();
+#else
             Columns = new HashSet<string>();
+#endif
         }
 
         #region ICloneable Members

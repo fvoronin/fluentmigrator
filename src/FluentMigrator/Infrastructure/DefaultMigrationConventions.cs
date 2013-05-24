@@ -102,7 +102,12 @@ namespace FluentMigrator.Infrastructure
 
         public static string GetWorkingDirectory()
         {
+#if NETCF
+            var codePath = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+            return System.IO.Path.GetDirectoryName(codePath);
+#else
             return Environment.CurrentDirectory;
+#endif
         }
 
         public static string GetConstraintName(ConstraintDefinition expression)

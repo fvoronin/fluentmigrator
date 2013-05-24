@@ -17,7 +17,9 @@
 #endregion
 
 using System;
+#if !NETCF
 using System.Runtime.Serialization;
+#endif
 
 namespace FluentMigrator.Exceptions
 {
@@ -37,9 +39,11 @@ namespace FluentMigrator.Exceptions
         {
         }
 
+        #if !NETCF
         public DatabaseOperationNotSupportedException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        #endif
     }
 }

@@ -22,4 +22,6 @@ using System.Security;
 
 [assembly: AssemblyTitle("FluentMigrator")]
 [assembly: AssemblyDescription("FluentMigrator")]
+#if !NETCF
 [assembly: AllowPartiallyTrustedCallers]
+#endif

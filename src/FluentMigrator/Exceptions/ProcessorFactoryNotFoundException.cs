@@ -17,7 +17,9 @@
 #endregion
 
 using System;
+#if !NETCF
 using System.Runtime.Serialization;
+#endif
 
 namespace FluentMigrator.Exceptions
 {
@@ -37,8 +39,10 @@ namespace FluentMigrator.Exceptions
         {
         }
 
+        #if !NETCF
         public ProcessorFactoryNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
+        #endif
     }
 }
